@@ -1,0 +1,295 @@
+Aim: Write C# programs for understanding C# basics involving:
+a. Variables and Data Types b. Object-Based Manipulation
+c. Conditional Logic d. Loops e. Methods
+
+a. Variables and Data Types
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int a = 20;
+bool b = true;
+double c = 5.5D;
+float d = 5.5F;
+string val = "Hello World";
+Console.WriteLine("Integer: " + a);
+Console.WriteLine("Boolean Value: " + b);
+Console.WriteLine("Decimal Value: " + c);
+Console.WriteLine("Float Value: " + d);
+Console.WriteLine("String Value: " + val);
+Console.ReadKey();
+}
+}
+}
+
+b. Object-Based Manipulation
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+string mystring;
+int a = 100;
+Console.WriteLine("Convert Number to String");
+mystring = a.ToString();
+Console.WriteLine("String is " + mystring);
+string s = " This is test string";
+Console.WriteLine("\nBefore Trim() Method: " + s);
+s = s.Trim();
+Console.WriteLine("\nAfter Trim() Method: " + s);
+s = s.Substring(0, 4);
+Console.WriteLine("\nSubstring() Method: " + s);
+s = s.ToUpper();
+Console.WriteLine("\nUppercase String: " + s);
+s = s.Replace("IS", "AT");
+Console.WriteLine("\nReplace String: " + s);
+int length = s.Length;
+Console.WriteLine("\nLength of String is: " + length);
+Console.WriteLine("\n**********************************");
+Console.WriteLine("\nDateTime Object");
+DateTime myDate = DateTime.Now;
+Console.WriteLine("Today's date is: " + myDate);
+myDate = myDate.AddDays(100);
+Console.WriteLine("\nAfter 100 Days the Date is: " + myDate);
+string dateString = myDate.Year.ToString();
+Console.WriteLine("\nYear in String is: " + dateString);
+DateTime myDate1 = DateTime.Now;
+DateTime myDate2 = DateTime.Now.AddHours(3000);
+Console.WriteLine("\nDate 1 : " + myDate1);
+Console.WriteLine("\nDate 2 : " + myDate2);
+TimeSpan difference;
+difference = myDate2.Subtract(myDate1);
+Console.WriteLine("\nDifference between 2 Dates: " + difference.Days.ToString()+" Days");
+double numberOfMinutes;
+numberOfMinutes = difference.TotalMinutes;
+Console.WriteLine("\nNumber of Minutes: " + numberOfMinutes);
+Console.WriteLine("\n**********************************");
+Console.WriteLine("\nThe Array Type:");
+int[] myArray = { 1, 2, 3, 4, 5 };
+int numberOfElements;
+numberOfElements = myArray.Length;
+Console.WriteLine("\nTotal Elements in array:" + numberOfElements);
+Console.ReadKey();
+}
+}
+}
+
+c. Conditional Logic
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+double percentage;
+Console.WriteLine("Enter your Percetage: ");
+percentage = Convert.ToDouble(Console.ReadLine());
+if (percentage >= 80.00)
+{
+Console.WriteLine("You get 'O' Grade.");
+}
+else if(percentage <= 79.99 && percentage >= 75.00)
+{
+Console.WriteLine("You get 'A' Grade.");
+}
+else if (percentage <= 74.99 && percentage >= 70.00)
+{
+Console.WriteLine("You get 'B' Grade.");
+}
+else if (percentage <= 69.99 && percentage >= 60.00)
+{
+Console.WriteLine("You get 'C' Grade.");
+}
+else if (percentage <= 59.99 && percentage >= 50.00)
+{
+Console.WriteLine("You get 'D' Grade.");
+}
+else if (percentage <= 49.99 && percentage >= 40.00)
+{
+Console.WriteLine("You get 'E' Grade.");
+}
+else
+{
+Console.WriteLine("You get 'F' Grade.");
+}
+Console.ReadKey();
+}
+}
+}
+
+2. Switch Case
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+char op;
+int first, second, result;
+Console.Write("Enter first number: ");
+first = Convert.ToInt32(Console.ReadLine());
+Console.Write("\nEnter second number: ");
+second = Convert.ToInt32(Console.ReadLine());
+Console.Write("\nEnter operator (+, -, *, /): ");
+op = (char)Console.Read();
+switch (op)
+{
+case '+':
+result = first + second;
+Console.WriteLine("\n" + first + " + " + second + " = " + result);
+break;
+case '-':
+result = first - second;
+Console.WriteLine("\n" + first + " - " + second + " = " + result);
+break;
+case '*':
+result = first * second;
+Console.WriteLine("\n" + first + " * " + second + " = " + result);
+break;
+case '/':
+result = first / second;
+Console.WriteLine("\n" + first + " / " + second + " = " + result);
+break;
+default:
+Console.WriteLine("Invalid Operator");
+break;
+}
+Console.ReadKey();
+}
+}
+}
+
+1. For Loop
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int n = 10, sum = 0;
+for (int i = 1; i <= n; i++)
+{
+sum = sum + i;
+}
+Console.WriteLine("Sum of first {0} natural numbers = {1}", n, sum);
+Console.ReadKey();
+}
+}
+}
+
+2. While Loop
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int n = 10, sum = 0, i = 1;
+while (i <= n)
+{
+sum = sum + i;
+i++;
+}
+Console.WriteLine("Sum of first {0} natural numbers = {1}", n, sum);
+Console.ReadKey();
+}
+}
+}
+
+3. Foreach Loop
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+static void Main(string[] args)
+{
+int sum = 0;
+int[] n = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+foreach (int number in n)
+{
+sum = sum + number;
+}
+Console.WriteLine("Sum of first {0} natural numbers = {1}", n.Length.ToString(), sum);
+Console.ReadKey();
+}
+}
+}
+
+e. Methods (Method Overloading)
+Program:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+namespace ConsoleApplication1
+{
+class Program
+{
+void calculate(int r)
+{
+double area,pi=3.14;
+area = pi * r * r;
+Console.WriteLine("Area of Circle: " + area);
+}
+void calculate(int l, int b)
+{
+double area;
+area = l * b;
+Console.WriteLine("Area of Rectangle " + area);
+}
+static void Main(string[] args)
+{
+Program p = new Program();
+int r, l, b;
+Console.WriteLine("Enter radius: ");
+r = Convert.ToInt32(Console.ReadLine());
+p.calculate(r);
+Console.WriteLine("\n-----------------------------------\n");
+Console.WriteLine("Enter Length: ");
+l = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Enter Breadth: ");
+b = Convert.ToInt32(Console.ReadLine());
+p.calculate(l, b);
+Console.WriteLine("\n--------------------------------------\n");
+Console.ReadKey();
+}
+}
+}
