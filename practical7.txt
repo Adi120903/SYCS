@@ -1,0 +1,79 @@
+Aim: Design ASP.NET Pages for State Management using Cookies
+Default.aspx Page:
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default4.aspx.cs" Inherits="Default4" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server"> <title></title> </head>
+<body>
+<form id="form1" runat="server">
+<div>
+<p align="center">
+<asp:Label ID="Label1" runat="server" Text="State Management Using Cookies"
+Font-Bold="True" Font-Italic="True" Font-Names="Century Schoolbook"
+Font-Size="20pt" Font-Underline="True" ForeColor="#009900"></asp:Label>
+<br /> <br />
+<asp:Label ID="Label2" runat="server" Text="Username: " Font-Bold="True"
+Font-Italic="True" Font-Names="Century Schoolbook" Font-Size="18pt"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<asp:TextBox ID="TextBox1" runat="server" Font-Names="Century Schoolbook"
+Font-Size="16pt"></asp:TextBox>
+<br /> <br />
+<asp:Label ID="Label3" runat="server" Text="Password: " Font-Bold="True"
+Font-Italic="True" Font-Names="Century Schoolbook" Font-Size="18pt"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<asp:TextBox ID="TextBox2" runat="server" Font-Names="Century Schoolbook"
+Font-Size="16pt"></asp:TextBox>
+<br /> <br />
+<asp:Button ID="Button1" runat="server" Text="Create Cookie" Font-Bold="True"
+Font-Names="Century Schoolbook" Font-Size="16pt" Width="200px"
+BorderColor="Black" BorderStyle="Solid" onclick="Button1_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<asp:Button ID="Button2" runat="server" Text="Retrieve Cookie" Font-Bold="True"
+Font-Names="Century Schoolbook" Font-Size="16pt" Width="200px"
+BorderColor="Black" BorderStyle="Solid" onclick="Button2_Click" />
+<br /> <br />
+<asp:Label ID="Label4" runat="server" Text="Status: " Font-Bold="True"
+Font-Italic="True" Font-Names="Times New Roman" Font-Size="15pt"
+ForeColor="Red"></asp:Label>
+</p>
+</div>
+</form>
+</body>
+</html>
+
+
+Default.aspx.cs Page:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+public partial class Default4 : System.Web.UI.Page
+{
+protected void Page_Load(object sender, EventArgs e)
+{ }
+protected void Button1_Click(object sender, EventArgs e)
+{
+Response.Cookies["name"].Value = TextBox1.Text;
+Response.Cookies["password"].Value = TextBox2.Text;
+Response.Cookies["name"].Expires = DateTime.Now.AddMinutes(1);
+Response.Cookies["password"].Expires = DateTime.Now.AddMinutes(1);
+Label4.Text = Label4.Text + "Cookie Created";
+TextBox1.Text = "";
+TextBox2.Text = "";
+}
+protected void Button2_Click(object sender, EventArgs e)
+{
+if (Request.Cookies["name"] == null || Request.Cookies["password"] == null)
+{
+Label4.Text = "No cookie found";
+}
+else
+{
+TextBox1.Text = Request.Cookies["name"].Value;
+TextBox2.Text = Request.Cookies["password"].Value;
+}
+}
+}
