@@ -1,0 +1,8 @@
+row echolen form
+
+from scipy.linalg import lu
+import numpy as np
+M=np.array([[1,2,3],[3,-1,0],[2,2,2]])
+u=lu(M)
+print(M)
+print(u)

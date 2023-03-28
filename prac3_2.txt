@@ -1,0 +1,17 @@
+matrix column
+
+import numpy as np
+M=np.array([[1,1,1],[3,4,7],[9,6,3]])
+M
+#matrix M is
+print("matrix M is ",M)
+Y=M[:,0:1]
+Y
+#first column of matrix M is
+print("first column of matrix M is ",Y)
+x=M[:,0:2]
+#first two columns of matrix M is
+print("first two columns of matrix M is ",x)
+t=M[:,0:3]
+#all columns of matrix M is
+print("all three columns of matrix M is ",t)

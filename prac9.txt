@@ -1,0 +1,10 @@
+eigen vector
+
+
+import numpy as np
+A=np.mat("-2 1;12 -3")
+print("A \n",A)
+print("eigen values of A are ",np.linalg.eigvals(A))
+eigenvalues,eigenvectors=np.linalg.eig(A)
+print("first set of eigen values ",eigenvalues)
+print("eigen vectors are ",eigenvectors)

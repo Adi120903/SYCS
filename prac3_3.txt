@@ -1,0 +1,11 @@
+matrix scalar multiplication
+
+
+import numpy as np
+M=np.array([[1,1,1],[3,4,7],[9,6,3]])
+M
+#matrix M is
+print("matrix M is ",M)
+a=6
+scalar=a*M
+print("scalar-matrix multiplication is ",scalar)

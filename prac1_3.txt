@@ -1,0 +1,9 @@
+plotting a set of complex number
+
+import matplotlib.pyplot as plt
+x=3+2j
+a=[-2+4j,-1+2j,0+2j,1+2j,2+2j,-1+4j,0+4j,1+4j]
+A=[x.real for x in a]
+B=[x.imag for x in a]
+plt.scatter(A,B,color="blue")
+plt.show()

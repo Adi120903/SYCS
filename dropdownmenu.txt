@@ -1,0 +1,63 @@
+create an android application that demonstrate the use of dropdown menu
+
+
+step 1 :
+create android resource directory(menu) by right clicking on “res” folder, select menu as a resource directory and directory 
+name
+step 2:
+right click on menu folder create new “menu resource file”. Give any name to the file, click on ok.
+
+
+Menu file:
+Example_menu.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+ <item
+ android:id="@+id/bookmark"
+ android:title="bookmark"/>
+ <item android:id="@+id/downloads"
+ android:title="downloads"/>
+ <item android:id="@+id/settings"
+ android:title="settings"/>
+</menu>
+
+
+MainActivity.java:
+package com.example.myapplication;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ }
+ @Override
+ public boolean onCreateOptionsMenu(Menu menu) {
+ MenuInflater inflater= getMenuInflater();
+ inflater.inflate(R.menu.example_menu, menu);
+ return true;
+ }
+ @Override
+ public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+ switch (item.getItemId()){
+ case R.id.bookmark:
+ Toast.makeText(getApplicationContext(), "you clicked on bookmark option", 
+Toast.LENGTH_SHORT).show();
+ return true;
+ case R.id.downloads:
+ Toast.makeText(getApplicationContext(), "You clicked on downloads option", 
+Toast.LENGTH_SHORT).show();
+ return true;
+ case R.id.settings:
+ Toast.makeText(getApplicationContext(), "You clicked on settings option", 
+Toast.LENGTH_SHORT).show();
+ }
+ return true;
+ }
+}
